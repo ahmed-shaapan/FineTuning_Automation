@@ -55,21 +55,21 @@ def generate_sequence(model_name, model_dir, prompt, max_new_tokens=200, save_pa
         save_result(output, save_path)
     return output
 
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--model", required=True)
-    parser.add_argument("--model_dir", required=True)
-    parser.add_argument("--prompt", required=True)
-    parser.add_argument("--max_new_tokens", type=int, default=200)
-    parser.add_argument("--save_path", default="./generated.txt")
-    args = parser.parse_args()
+# if __name__ == "__main__":
+#     parser = argparse.ArgumentParser()
+#     parser.add_argument("--model", required=True)
+#     parser.add_argument("--model_dir", required=True)
+#     parser.add_argument("--prompt", required=True)
+#     parser.add_argument("--max_new_tokens", type=int, default=200)
+#     parser.add_argument("--save_path", default="./generated.txt")
+#     args = parser.parse_args()
 
-    result = generate_sequence(
-        model_name=args.model,
-        model_dir=args.model_dir,
-        prompt=args.prompt,
-        max_new_tokens=args.max_new_tokens,
-        save_path=args.save_path,
-    )
+#     result = generate_sequence(
+#         model_name=args.model,
+#         model_dir=args.model_dir,
+#         prompt=args.prompt,
+#         max_new_tokens=args.max_new_tokens,
+#         save_path=args.save_path,
+#     )
 
-    print("\n Generated Sequence:\n", result)
+#     print("\n Generated Sequence:\n", result)

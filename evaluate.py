@@ -33,10 +33,13 @@ def evaluate_model(model_dir, test_file):
         identities.append(compute_identity(pred, ref))
 
     print(f"Avg Identity: {np.mean(identities):.4f}")
+    avg_id = np.mean(identities) # Store the value
+    print(f"Avg Identity: {avg_id:.4f}")
+    return avg_id
 
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--model_dir", required=True)
-    parser.add_argument("--test_file", required=True)
-    args = parser.parse_args()
-    evaluate_model(args.model_dir, args.test_file)
+# if __name__ == "__main__":
+#     parser = argparse.ArgumentParser()
+#     parser.add_argument("--model_dir", required=True)
+#     parser.add_argument("--test_file", required=True)
+#     args = parser.parse_args()
+#     evaluate_model(args.model_dir, args.test_file)

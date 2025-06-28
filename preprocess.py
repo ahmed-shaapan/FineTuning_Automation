@@ -49,24 +49,24 @@ def save_splits(train, valid, test, out_dir):
     with open(f"{out_dir}/validation.txt", 'w') as f: f.write("\n".join(valid))
     with open(f"{out_dir}/test.txt", 'w') as f: f.write("\n".join(test))
 
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--fasta_file", required=True)
-    parser.add_argument("--model", required=True, choices=PREPROCESSORS.keys())
-    parser.add_argument("--output_dir", default="./splits")
-    args = parser.parse_args()
+# if __name__ == "__main__":
+#     parser = argparse.ArgumentParser()
+#     parser.add_argument("--fasta_file", required=True)
+#     parser.add_argument("--model", required=True, choices=PREPROCESSORS.keys())
+#     parser.add_argument("--output_dir", default="./splits")
+#     args = parser.parse_args()
 
-    raw_sequences = read_fasta(args.fasta_file)
-    preprocessor = PREPROCESSORS[args.model]
-    processed_sequences = preprocessor(raw_sequences)
+#     raw_sequences = read_fasta(args.fasta_file)
+#     preprocessor = PREPROCESSORS[args.model]
+#     processed_sequences = preprocessor(raw_sequences)
     
-    train, valid, test = split_dataset(processed_sequences)
-    save_splits(train, valid, test, args.output_dir)
+#     train, valid, test = split_dataset(processed_sequences)
+#     save_splits(train, valid, test, args.output_dir)
 
-    dataset = load_dataset("text", data_files={
-        "train": f"{args.output_dir}/train.txt",
-        "validation": f"{args.output_dir}/validation.txt",
-        "test": f"{args.output_dir}/test.txt"
-    })
+#     dataset = load_dataset("text", data_files={
+#         "train": f"{args.output_dir}/train.txt",
+#         "validation": f"{args.output_dir}/validation.txt",
+#         "test": f"{args.output_dir}/test.txt"
+#     })
 
-    print("[INFO] Dataset loaded successfully:", dataset)
+#     print("[INFO] Dataset loaded successfully:", dataset)
